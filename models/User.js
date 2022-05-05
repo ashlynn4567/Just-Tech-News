@@ -14,7 +14,6 @@ class User extends Model {
 User.init(
     {
         // TABLE COLUMN DEFINITIONS GO HERE
-
         // define an id column
         id: {
             // use the special sequelize DataTypes object to provide data type

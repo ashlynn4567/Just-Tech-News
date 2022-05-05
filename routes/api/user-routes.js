@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-// GET /api/users
+// GET /api/users (all)
 router.get("/", (req, res) => {
     // access our User model and run .findAll() method
     User.findAll({
@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
         });
 });
 
-// GET /api/users/1
+// GET /api/users/1 (one user)
 router.get("/:id", (req, res) => {
     User
         .findOne({
@@ -25,7 +25,7 @@ router.get("/:id", (req, res) => {
         })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: "No user found with this id" });
+                res.status(404).json({ message: "No user found with this id." });
                 return;
             }
             res.json(dbUserData);
@@ -91,7 +91,7 @@ router.put("/:id", (req, res) => {
         })
         .then(dbUserData => {
             if (!dbUserData[0]) {
-                res.status(404).json({ message: "No user found with this id" });
+                res.status(404).json({ message: "No user found with this id." });
                 return;
             }
             res.json(dbUserData);
@@ -112,7 +112,7 @@ router.delete("/:id", (req, res) => {
         })
         .then(dbUserData => {
             if (!dbUserData) {
-                res.status(404).json({ message: "No user found with this id" });
+                res.status(404).json({ message: "No user found with this id." });
                 return;
             }
             res.json(dbUserData);
