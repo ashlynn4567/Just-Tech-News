@@ -1,0 +1,9 @@
+<ol class="post-list">
+    {{! This list item will duplicate for each item in the posts array }}
+    {{#each posts as |post|}}
+    <li>
+        {{! for a partial, type "> nameOfPartialFile objectWeWantToPassIn"}}
+        {{> post-info post}}
+    </li>
+    {{/each}}
+</ol>
