@@ -1,5 +1,5 @@
 // imports
-const {format_date} = require("../utils/helpers");
+const {format_date, format_plural, format_url} = require("../utils/helpers");
 
 //tests
 test("format_date() returns a date string", () => {
@@ -9,9 +9,8 @@ test("format_date() returns a date string", () => {
 });
 
 test("format_plural() returns string(s) for a plural and string for a singular input", () => {
-    const input1 = ("Tiger", 2);
-
-    const input2 = ("Lion", 1);
+    const input1 = format_plural("Tiger", 2);
+    const input2 = format_plural("Lion", 1);
 
     expect(format_plural(input1)).toBe("Tigers");
     expect(format_plural(input2)).toBe("Lion");
