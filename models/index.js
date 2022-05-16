@@ -11,29 +11,34 @@ User.hasMany(Post, {
 
 // creates association to User within Post (one to one)
 Post.belongsTo(User, {
-    foreignKey: "user_id"
+    foreignKey: "user_id",
+    onDelete: "SET NULL"
 });
 
 // creates association to Post through User (many to many)
 User.belongsToMany(Post, {
     through: Vote,
     as: "voted_posts",
-    foreignKey: "user_id"
+    foreignKey: "user_id",
+    onDelete: "SET NULL"
 });
 
 // creates association to User through Post (many to many)
 Post.belongsToMany(User, {
     through: Vote,
     as: "voted_posts",
-    foreignKey: "post_id"
+    foreignKey: "post_id",
+    onDelete: "SET NULL"
 });
 
 Vote.belongsTo(User, {
-    foreignKey: "user_id"
+    foreignKey: "user_id",
+    onDelete: 'SET NULL'
 });
 
 Vote.belongsTo(Post, {
-    foreignKey: "post_id"
+    foreignKey: "post_id",
+    onDelete: 'SET NULL'
 });
 
 User.hasMany(Vote, {
@@ -45,15 +50,18 @@ Post.hasMany(Vote, {
 });
 
 Comment.belongsTo(User, {
-    foreignKey: "user_id"
+    foreignKey: "user_id",
+    onDelete: 'SET NULL'
 });
 
 Comment.belongsTo(Post, {
-    foreignKey: "post_id"
+    foreignKey: "post_id",
+    onDelete: 'SET NULL'
 });
 
 User.hasMany(Comment, {
-    foreignKey: "comment_id"
+    foreignKey: "comment_id",
+    onDelete: 'SET NULL'
 });
 
 Post.hasMany(Comment, {
